@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 2,
+  "sessionId": "incomplete",
+  "revision": 1,
+  "status": "planning",
+  "scenes": [],
+  "bufferSourceIds": [
+    "u1"
+  ],
+  "bufferReasons": {
+    "u1": "原话“那时候我每天放学以后，都会去……”只给出放学后的习惯性开头，目的地与主要行动尚未说完；等待自然续讲，不因 final=true 或停顿就成镜，也不打断追问。"
+  },
+  "unresolved": [
+    "u1 原话保持为“那时候我每天放学以后，都会去……”。事件未完整，不计算或分配场景展示时长。",
+    "videoAvailable=false；本轮仅编排，不提交生成。"
+  ],
+  "queueActions": []
+}

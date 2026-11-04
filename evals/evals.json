@@ -1,0 +1,46 @@
+{
+  "skill_name": "comemory-orchestrator",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "讲述刚开始，请根据输入先判断是否已有完整事件。只交付机器可读编排计划，不调用外部服务，不考虑界面动效，不打断用户补全背景。",
+      "expected_output": "可追溯的机器计划，符合当前服务能力与口述证据。",
+      "files": [
+        "evals/incomplete-event.input.json"
+      ],
+      "expectations": [
+        "scenes 为空，u1 在 bufferSourceIds 并有等待理由",
+        "不新增目的地或事件结尾",
+        "无视频任务入队、无伪造媒体文件"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "请编排这段代际回忆，保留原话依据，按事件决定分镜并给出真实时间依据。当前服务不可用，仅输出计划，不能假装生成视频；不考虑界面动效。",
+      "expected_output": "可追溯的机器计划，符合当前服务能力与口述证据。",
+      "files": [
+        "evals/pause-and-question.input.json"
+      ],
+      "expectations": [
+        "骑车去上学作为同一主要行动，不按停顿拆成两个事件",
+        "年轻人的下雨问句不成为雨景事实",
+        "年龄、天气等未知项不被补全；年代保持不确定",
+        "时长使用确认的长辈时间，生成秒数仅为5，展示总和守恒"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "用户纠正了正在生成的桥段。请只更新对应场景，保留版本依据并处理旧任务；不调用真实服务，只输出机器计划，不考虑动效。",
+      "expected_output": "可追溯的机器计划，符合当前服务能力与口述证据。",
+      "files": [
+        "evals/correction-and-version.input.json"
+      ],
+      "expectations": [
+        "bridge 保持同一ID，版本升为2或更高",
+        "木桥替换石桥，不保留相互矛盾的当前事实",
+        "不可取消旧任务时标记 obsolete，不伪造取消成功",
+        "未连接视频服务，不 enqueue 新生成，不伪造 ready"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "ended": true,
+  "bufferSourceIds": [],
+  "tasks": [
+    {
+      "taskKey": "demo/bridge/2/0",
+      "status": "failed"
+    }
+  ],
+  "playbackEnded": true,
+  "nowMs": 120000,
+  "deadlineMs": 90000
+}

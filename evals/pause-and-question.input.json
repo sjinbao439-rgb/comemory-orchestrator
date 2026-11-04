@@ -1,0 +1,50 @@
+{
+  "sessionId": "school",
+  "profile": {
+    "currentAge": 70,
+    "recalledAge": null,
+    "region": "江南"
+  },
+  "utterances": [
+    {
+      "id": "u0",
+      "speaker": "elder",
+      "text": "好像是八二年，我还在上学。",
+      "startMs": 0,
+      "endMs": 2000,
+      "final": true
+    },
+    {
+      "id": "u1",
+      "speaker": "elder",
+      "text": "我骑车……",
+      "startMs": 3000,
+      "endMs": 5000,
+      "final": true
+    },
+    {
+      "id": "u2",
+      "speaker": "elder",
+      "text": "去上学。",
+      "startMs": 11000,
+      "endMs": 13500,
+      "final": true
+    },
+    {
+      "id": "u3",
+      "speaker": "young",
+      "text": "那天是不是下雨了？",
+      "startMs": 14000,
+      "endMs": 15500,
+      "final": true
+    }
+  ],
+  "capabilities": {
+    "asrAvailable": false,
+    "videoAvailable": false,
+    "supportedSeconds": [
+      5
+    ]
+  },
+  "ended": false
+}

@@ -1,0 +1,21 @@
+{
+  "sessionId": "incomplete",
+  "utterances": [
+    {
+      "id": "u1",
+      "speaker": "elder",
+      "text": "那时候我每天放学以后，都会去……",
+      "startMs": 0,
+      "endMs": 2500,
+      "final": true
+    }
+  ],
+  "capabilities": {
+    "asrAvailable": false,
+    "videoAvailable": false,
+    "supportedSeconds": [
+      5
+    ]
+  },
+  "ended": false
+}

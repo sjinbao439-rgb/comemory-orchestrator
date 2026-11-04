@@ -1,0 +1,4 @@
+interface:
+  display_name: "共忆 · 口述到视频编排"
+  short_description: "将回忆口述整理为可追溯分镜、时长与视频生成计划，支持持续讲述和补充纠正"
+  default_prompt: "使用 $comemory-orchestrator，将讲述者的回忆口述编排成有原话依据的分镜、时长与首帧/视频提示词，衔接生成任务、结果校验与补充修订。"

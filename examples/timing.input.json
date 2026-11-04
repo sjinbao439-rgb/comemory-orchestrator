@@ -1,0 +1,8 @@
+{
+  "startMs": 13500,
+  "endMs": 20000,
+  "supportedSeconds": [
+    5,
+    10
+  ]
+}

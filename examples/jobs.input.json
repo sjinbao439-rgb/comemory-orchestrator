@@ -1,0 +1,77 @@
+{
+  "sessionId": "jiangnan-example",
+  "scene": {
+    "id": "bridge",
+    "revision": 2,
+    "sourceIds": [
+      "u1",
+      "u2",
+      "u4"
+    ],
+    "timeSourceIds": [
+      "u4"
+    ],
+    "event": "放学后骑车经过木桥去找阿秀",
+    "facts": [
+      {
+        "text": "约1982年，讲述者对此不确定",
+        "certainty": "uncertain",
+        "sourceIds": [
+          "u1"
+        ]
+      },
+      {
+        "text": "放学后骑车经过桥去找阿秀",
+        "certainty": "inherited",
+        "sourceIds": [
+          "u2"
+        ]
+      },
+      {
+        "text": "桥是木桥",
+        "certainty": "explicit",
+        "sourceIds": [
+          "u4"
+        ]
+      },
+      {
+        "text": "当时没有下雨",
+        "certainty": "explicit",
+        "sourceIds": [
+          "u4"
+        ]
+      }
+    ],
+    "unknowns": [
+      "讲述者当时年龄",
+      "桥的精确样式和色彩",
+      "衣服与自行车外观",
+      "确切年份"
+    ],
+    "continuityIds": [
+      "narrator",
+      "bicycle",
+      "axiou"
+    ],
+    "timing": {
+      "basis": "measured",
+      "clockScope": "source_union",
+      "sourceSeconds": 6.5,
+      "targetDisplaySeconds": 6.5,
+      "blocked": false,
+      "needsSemanticReview": false,
+      "clips": [
+        {
+          "generateSeconds": 10,
+          "displaySeconds": 6.5,
+          "trimSeconds": 3.5
+        }
+      ]
+    },
+    "prompt": "第一人称视角，放学骑车经过一座木桥，继续去找朋友；视角随前行轻微移动，以桥面和前进方向为主，不强调未知的人物外貌、自行车样式或桥的装饰。保持生活化、彩色暖调、自然光、轻微胶片颗粒和克制运镜。年代仅为讲述者不确定的约1982年线索，不加入年代文字或确定的历史标志。",
+    "negativePrompt": "雨景、石桥、黑白、字幕、时间码、Logo、水印、新增人物冲突、确定的未描述服装及建筑细节",
+    "executionStatus": "planned",
+    "imagePrompt": "依据原话：约1982年的江南河道旁，一座木桥，讲述者在放学去找阿秀的路上。第一人称构图，避免可辨面貌、服装和桥体精确样式。彩色、自然光、轻微复古质感；年份保持不确定，不生成雨景。",
+    "segmentationReason": "骑车经过木桥去找朋友是同一主要行动；后文纠正桥体材质，只修订原场景。"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "sessionId": "bridge-correction",
+  "utterances": [
+    {
+      "id": "u1",
+      "speaker": "elder",
+      "text": "放学后我骑车经过石桥去找阿秀。",
+      "startMs": 0,
+      "endMs": 4000,
+      "final": true
+    },
+    {
+      "id": "u2",
+      "speaker": "elder",
+      "text": "我刚才记错了，是木桥，不是石桥。",
+      "startMs": 5000,
+      "endMs": 9000,
+      "final": true
+    }
+  ],
+  "capabilities": {
+    "asrAvailable": false,
+    "videoAvailable": false,
+    "cancelAvailable": false,
+    "supportedSeconds": [
+      5,
+      10
+    ]
+  },
+  "previousPlan": {
+    "sessionId": "bridge-correction",
+    "revision": 1,
+    "scenes": [
+      {
+        "id": "bridge",
+        "revision": 1,
+        "event": "骑车过石桥去找朋友",
+        "sourceIds": [
+          "u1"
+        ],
+        "facts": [
+          {
+            "text": "桥是石桥",
+            "certainty": "explicit",
+            "sourceIds": [
+              "u1"
+            ]
+          }
+        ],
+        "executionStatus": "generating"
+      }
+    ]
+  },
+  "ended": false
+}

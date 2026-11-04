@@ -1,0 +1,100 @@
+{
+  "sessionId": "jiangnan-example",
+  "profile": {
+    "name": "陈奶奶",
+    "currentAge": 70,
+    "recalledAge": null,
+    "era": null,
+    "region": "江南",
+    "referenceAssets": []
+  },
+  "utterances": [
+    {
+      "id": "u1",
+      "speaker": "elder",
+      "text": "好像是八二年吧，那会儿我还在上学。",
+      "startMs": 0,
+      "endMs": 3000,
+      "final": true
+    },
+    {
+      "id": "u2",
+      "speaker": "elder",
+      "text": "放学后我骑车经过那座石桥，去找朋友阿秀。",
+      "startMs": 3500,
+      "endMs": 10000,
+      "final": true
+    },
+    {
+      "id": "u3",
+      "speaker": "young",
+      "text": "那时候是不是下雨了？",
+      "startMs": 10500,
+      "endMs": 13000,
+      "final": true
+    },
+    {
+      "id": "u4",
+      "speaker": "elder",
+      "text": "没有下雨。对了，我记错了，不是石桥，是木桥。",
+      "startMs": 13500,
+      "endMs": 20000,
+      "final": true
+    },
+    {
+      "id": "u5",
+      "speaker": "elder",
+      "text": "后来我们坐在河边，她给我递了一块桂花糖。",
+      "startMs": 21000,
+      "endMs": 28000,
+      "final": true
+    }
+  ],
+  "capabilities": {
+    "supportedSeconds": [
+      5,
+      10
+    ],
+    "asrAvailable": false,
+    "videoAvailable": false
+  },
+  "ended": true,
+  "previousPlan": {
+    "sessionId": "jiangnan-example",
+    "revision": 1,
+    "scenes": [
+      {
+        "id": "bridge",
+        "revision": 1,
+        "facts": [
+          {
+            "text": "约1982年，讲述者对此不确定",
+            "certainty": "uncertain",
+            "sourceIds": [
+              "u1"
+            ]
+          },
+          {
+            "text": "放学后骑车经过桥去找阿秀",
+            "certainty": "explicit",
+            "sourceIds": [
+              "u2"
+            ]
+          },
+          {
+            "text": "桥是石桥",
+            "certainty": "explicit",
+            "sourceIds": [
+              "u2"
+            ]
+          }
+        ],
+        "executionStatus": "planned",
+        "sourceIds": [
+          "u1",
+          "u2"
+        ]
+      }
+    ]
+  }
+}

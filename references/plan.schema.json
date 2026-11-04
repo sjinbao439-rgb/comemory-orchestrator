@@ -1,0 +1,383 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CoMemory Oral-to-Video Plan v2",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "sessionId",
+    "revision",
+    "status",
+    "scenes",
+    "bufferSourceIds",
+    "bufferReasons",
+    "unresolved",
+    "queueActions"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 2
+    },
+    "sessionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "status": {
+      "enum": [
+        "planning",
+        "ready_for_generation",
+        "awaiting_capability",
+        "complete"
+      ]
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "revision",
+          "sourceIds",
+          "timeSourceIds",
+          "event",
+          "segmentationReason",
+          "facts",
+          "unknowns",
+          "continuityIds",
+          "timing",
+          "imagePrompt",
+          "prompt",
+          "negativePrompt",
+          "executionStatus"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "sourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "timeSourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "event": {
+            "type": "string",
+            "minLength": 1
+          },
+          "segmentationReason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "facts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "text",
+                "certainty",
+                "sourceIds"
+              ],
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "certainty": {
+                  "enum": [
+                    "explicit",
+                    "inherited",
+                    "uncertain"
+                  ]
+                },
+                "sourceIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "uniqueItems": true,
+                  "minItems": 1
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "unknowns": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "continuityIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "timing": {
+            "type": "object",
+            "required": [
+              "basis",
+              "clockScope",
+              "sourceSeconds",
+              "targetDisplaySeconds",
+              "blocked",
+              "needsSemanticReview",
+              "clips"
+            ],
+            "properties": {
+              "basis": {
+                "enum": [
+                  "measured",
+                  "estimated"
+                ]
+              },
+              "clockScope": {
+                "enum": [
+                  "event_span",
+                  "source_union",
+                  "text"
+                ]
+              },
+              "sourceSeconds": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "targetDisplaySeconds": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "needsSemanticReview": {
+                "type": "boolean"
+              },
+              "clips": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "generateSeconds",
+                    "displaySeconds",
+                    "trimSeconds"
+                  ],
+                  "properties": {
+                    "generateSeconds": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "displaySeconds": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "trimSeconds": {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "imagePrompt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "prompt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "negativePrompt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "clipPrompts": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "executionStatus": {
+            "enum": [
+              "planned",
+              "queued",
+              "generating",
+              "ready",
+              "failed",
+              "obsolete"
+            ]
+          },
+          "artifactUri": {
+            "type": "string",
+            "minLength": 1
+          },
+          "artifactDurationSeconds": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "bufferSourceIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "bufferReasons": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "unresolved": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "queueActions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "type",
+          "sceneId",
+          "revision",
+          "reason"
+        ],
+        "properties": {
+          "type": {
+            "enum": [
+              "enqueue",
+              "cancel",
+              "mark_obsolete"
+            ]
+          },
+          "sceneId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "revisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "sceneId",
+          "previousRevision",
+          "revision",
+          "replacedFact",
+          "replacementFact",
+          "sourceIds"
+        ],
+        "properties": {
+          "sceneId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "previousRevision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "replacedFact": {
+            "type": "string",
+            "minLength": 1
+          },
+          "replacementFact": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "archiveStatus": {
+      "enum": [
+        "not_requested",
+        "manifest_only",
+        "saved",
+        "partial"
+      ]
+    },
+    "archiveReceipt": {
+      "type": "object",
+      "required": [
+        "uri",
+        "savedAt"
+      ],
+      "properties": {
+        "uri": {
+          "type": "string",
+          "minLength": 1
+        },
+        "savedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

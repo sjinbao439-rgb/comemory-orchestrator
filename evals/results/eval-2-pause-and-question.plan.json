@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 2,
+  "sessionId": "school",
+  "revision": 1,
+  "status": "awaiting_capability",
+  "scenes": [
+    {
+      "id": "school-ride",
+      "revision": 1,
+      "sourceIds": [
+        "u0",
+        "u1",
+        "u2"
+      ],
+      "timeSourceIds": [
+        "u1",
+        "u2"
+      ],
+      "event": "讲述者回忆骑车去上学；年代好像是八二年。",
+      "segmentationReason": "“我骑车……”与“去上学。”构成同一主要行动，中间停顿没有新事件；u0 只作为继承背景，不单独成镜，u3 是未获回答的追问。",
+      "facts": [
+        {
+          "text": "好像是八二年",
+          "certainty": "uncertain",
+          "sourceIds": [
+            "u0"
+          ]
+        },
+        {
+          "text": "我还在上学。",
+          "certainty": "inherited",
+          "sourceIds": [
+            "u0"
+          ]
+        },
+        {
+          "text": "我骑车……去上学。",
+          "certainty": "explicit",
+          "sourceIds": [
+            "u1",
+            "u2"
+          ]
+        }
+      ],
+      "unknowns": [
+        "回忆中的年龄未知；currentAge=70 仅是现在年龄。",
+        "天气未知；“那天是不是下雨了？”尚未获长辈回答。",
+        "人物外貌、服装、自行车样式、具体道路和学校建筑均未描述。",
+        "年代只有“好像是八二年”的不确定回忆；江南仅为 profile 背景。"
+      ],
+      "continuityIds": [
+        "narrator-recalled",
+        "school-bicycle"
+      ],
+      "timing": {
+        "basis": "measured",
+        "clockScope": "event_span",
+        "sourceSeconds": 10.5,
+        "targetDisplaySeconds": 10.5,
+        "blocked": false,
+        "needsSemanticReview": false,
+        "clips": [
+          {
+            "generateSeconds": 5,
+            "displaySeconds": 3.5,
+            "trimSeconds": 1.5
+          },
+          {
+            "generateSeconds": 5,
+            "displaySeconds": 3.5,
+            "trimSeconds": 1.5
+          },
+          {
+            "generateSeconds": 5,
+            "displaySeconds": 3.5,
+            "trimSeconds": 1.5
+          }
+        ]
+      },
+      "imagePrompt": "骑车去上学的静态首帧，手部、自行车局部与前方道路入画，构图避开脸部、服装细节、年代标识和具体学校建筑；空间细节简洁，彩色、自然光、轻微复古颗粒。",
+      "prompt": "讲述者持续骑车去上学，手部稳定扶把，车轮随骑行自然转动，道路在行进中缓缓后移；镜头克制跟随同一人物与自行车，动作连贯，保持同一空间与光线。",
+      "negativePrompt": "无雨滴、积水、雨具或明显晴天气象强调；不出现70岁老年学生形象、确切年份文字、可识别的特定服装车款或学校建筑；无抵校、遇人、对话等新动作，无额外人物、字幕或水印；避免手部畸变、车轮变形、闪烁、人物身份跳变和动作倒退。",
+      "executionStatus": "planned",
+      "clipPrompts": [
+        "讲述者骑车向前去上学，手部稳定扶把，车轮连续转动，近处道路缓慢向后移动；局部视角克制跟随，空间和光线保持一致。",
+        "同一人物与自行车继续向前骑行，接续既有车轮转动相位与手部姿态，道路继续向后移动；维持相同视角、空间和光线，动作平顺向前。",
+        "同一骑行过程自然向前延续，手部扶把与车轮转动连贯，前方道路逐渐接近、近处道路向后移出画面；镜头仍克制跟随，人物、自行车、空间和光线一致。"
+      ]
+    }
+  ],
+  "bufferSourceIds": [],
+  "bufferReasons": {},
+  "unresolved": [
+    "年轻人原话 u3：“那天是不是下雨了？”保留作上下文，等自然回答；不为补天气打断用户。",
+    "计时采用 u1 开始3000ms至 u2 结束13500ms的单一事件跨度，包含同一行动的内部停顿；排除背景 u0 和年轻人追问 u3。",
+    "videoAvailable=false；时长规格已知不代表服务可用，全部提示词与片段均为计划，不提交任务、不声称已有视频。"
+  ],
+  "queueActions": []
+}

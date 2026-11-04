@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 2,
+  "sessionId": "bridge-correction",
+  "revision": 2,
+  "status": "awaiting_capability",
+  "scenes": [
+    {
+      "id": "bridge",
+      "revision": 2,
+      "sourceIds": [
+        "u1",
+        "u2"
+      ],
+      "timeSourceIds": [
+        "u1"
+      ],
+      "event": "放学后讲述者骑车经过木桥去找阿秀；“石桥”已被讲述者纠正。",
+      "segmentationReason": "u2 明确纠正 u1 中同一座桥的材质，保留同一事件与 bridge 场景ID，只更新事实和提示词并升至第2版，不新增纠正画面。",
+      "facts": [
+        {
+          "text": "放学后我骑车经过桥去找阿秀。",
+          "certainty": "inherited",
+          "sourceIds": [
+            "u1"
+          ]
+        },
+        {
+          "text": "我刚才记错了，是木桥，不是石桥。",
+          "certainty": "explicit",
+          "sourceIds": [
+            "u2"
+          ]
+        }
+      ],
+      "unknowns": [
+        "回忆年代、地区与讲述者当时年龄未提供。",
+        "人物外貌与服装、自行车样式、木桥具体结构及周边环境未描述。",
+        "阿秀的身份、外貌以及是否实际见到阿秀未提供。"
+      ],
+      "continuityIds": [
+        "narrator-recalled",
+        "bicycle",
+        "bridge"
+      ],
+      "timing": {
+        "basis": "measured",
+        "clockScope": "event_span",
+        "sourceSeconds": 4,
+        "targetDisplaySeconds": 4,
+        "blocked": false,
+        "needsSemanticReview": false,
+        "clips": [
+          {
+            "generateSeconds": 5,
+            "displaySeconds": 4,
+            "trimSeconds": 1
+          }
+        ]
+      },
+      "imagePrompt": "骑车经过木桥的静态首帧，手部、自行车局部与可辨为木材的桥面入画，构图避开脸部、服装细节、精确桥梁结构与周边地标；彩色、自然光、轻微复古颗粒。",
+      "prompt": "讲述者骑车经过木桥，手部稳定扶把，车轮自然滚动，木质桥面随行进连续向后移动；镜头克制跟随同一人物与自行车，保持木桥材质、空间和光线一致。",
+      "negativePrompt": "无石桥、石砌桥面或木桥变为石桥；无阿秀出场、见面、对话、额外人物或新剧情；不出现可识别的特定服装、精确年代标识或周边地标；无字幕、水印、静止画面循环、肢体畸变、车轮变形、闪烁或人物身份跳变。",
+      "executionStatus": "planned"
+    }
+  ],
+  "bufferSourceIds": [],
+  "bufferReasons": {},
+  "unresolved": [
+    "videoAvailable=false，本轮不 enqueue 新版本；取消能力为 false，旧版只能计划标记失效，不能声称已经取消。",
+    "旧 bridge revision=1 正在生成；宿主执行 mark_obsolete 后必须忽略其迟到回调，禁止覆盖 revision=2。本计划尚未执行队列动作。",
+    "修订沿用 u1 的0至4000ms事件跨度；u2 的5000至9000ms是纠正说明，不重复延长骑车事件。",
+    "输入没有其他后续场景，未对无关场景作版本传播；原话 u1“放学后我骑车经过石桥去找阿秀。”与 u2“我刚才记错了，是木桥，不是石桥。”均保留来源。"
+  ],
+  "queueActions": [
+    {
+      "type": "mark_obsolete",
+      "sceneId": "bridge",
+      "revision": 1,
+      "reason": "桥材质已被 u2 从石桥纠正为木桥；旧版正在生成且 cancelAvailable=false，计划使其失效并拒收旧版结果。"
+    }
+  ],
+  "revisions": [
+    {
+      "sceneId": "bridge",
+      "previousRevision": 1,
+      "revision": 2,
+      "replacedFact": "桥是石桥",
+      "replacementFact": "是木桥，不是石桥。",
+      "sourceIds": [
+        "u2"
+      ]
+    }
+  ]
+}

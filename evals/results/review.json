@@ -1,0 +1,103 @@
+{
+  "scope": "25 deterministic tests; 3 host-model planning trials; no live ASR/image/video generation or baseline comparison",
+  "cases": [
+    {
+      "case": "eval-1-incomplete-event",
+      "summary": {
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "pass_rate": 1
+      },
+      "expectations": [
+        {
+          "text": "机器计划通过来源、时长和版本结构校验",
+          "passed": true,
+          "evidence": "validate.cjs 返回空错误列表。"
+        },
+        {
+          "text": "未完整原话保留缓冲，不编造新场景",
+          "passed": true,
+          "evidence": "scenes=[]；u1 保留等待理由。"
+        },
+        {
+          "text": "不伪造任务或视频文件",
+          "passed": true,
+          "evidence": "queueActions=[]，无场景文件。"
+        }
+      ]
+    },
+    {
+      "case": "eval-2-pause-and-question",
+      "summary": {
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "pass_rate": 1
+      },
+      "expectations": [
+        {
+          "text": "机器计划通过来源、时长和版本结构校验",
+          "passed": true,
+          "evidence": "validate.cjs 返回空错误列表。"
+        },
+        {
+          "text": "同一骑车行动保持一个场景",
+          "passed": true,
+          "evidence": "“我骑车……”与“去上学。”构成同一主要行动，中间停顿没有新事件；u0 只作为继承背景，不单独成镜，u3 是未获回答的追问。"
+        },
+        {
+          "text": "年轻人问句不进入事实或计时来源",
+          "passed": true,
+          "evidence": "u3 仅在 unresolved 中作未回答上下文。"
+        },
+        {
+          "text": "年代不确定、年龄未知，按真实事件范围计时",
+          "passed": true,
+          "evidence": "u1/u2 跨度10.5秒，包含同事件停顿；年龄未知，年代 uncertain。"
+        },
+        {
+          "text": "仅用5秒能力并承接前片末帧",
+          "passed": true,
+          "evidence": "3片各生成5秒、各展示3.5秒；任务输出包含末帧依赖。"
+        },
+        {
+          "text": "提示词与调度参数分离，未提交真实视频",
+          "passed": true,
+          "evidence": "prompt 只描述持续骑车；时长与裁剪保留 timing 字段。"
+        }
+      ]
+    },
+    {
+      "case": "eval-3-correction-and-version",
+      "summary": {
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "pass_rate": 1
+      },
+      "expectations": [
+        {
+          "text": "机器计划通过来源、时长和版本结构校验",
+          "passed": true,
+          "evidence": "validate.cjs 返回空错误列表。"
+        },
+        {
+          "text": "场景ID稳定且纠正后升版",
+          "passed": true,
+          "evidence": "bridge revision=2，revisions 保存石桥→木桥依据。"
+        },
+        {
+          "text": "保留木桥纠正，不捏造取消成功",
+          "passed": true,
+          "evidence": "纠正事实引用u2，旧revision=1标obsolete，不调用不可用取消能力。"
+        },
+        {
+          "text": "纠正不重复占用事件时长，不伪造新视频",
+          "passed": true,
+          "evidence": "沿用u1的4秒事件，u2只纠正事实；无enqueue/ready。"
+        }
+      ]
+    }
+  ]
+}
