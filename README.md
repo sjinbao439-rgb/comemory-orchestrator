@@ -21,7 +21,7 @@ git clone https://github.com/sjinbao439-rgb/comemory-orchestrator.git ~/.codex/s
 ```bash
 node --test scripts/*.test.cjs
 node scripts/timing.cjs examples/timing.input.json
-node scripts/jobs.cjs examples/jobs.input.json
+node scripts/jobs.cjs tasks examples/jobs.input.json
 node scripts/validate.cjs examples/jiangnan.input.json examples/jiangnan.plan.json
 ```
 
